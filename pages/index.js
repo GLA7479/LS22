@@ -1,4 +1,4 @@
-import Layout from "../components/Layout.jx";
+import Layout from "../components/Layout.js";
 import { motion } from "framer-motion";
 import Link from "next/link";
 

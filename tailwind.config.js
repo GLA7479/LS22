@@ -7,12 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#FACC15", // צבע צהוב עיקרי
-        dark: "#0D0D0D",
+        primary: "#FACC15",
         secondary: "#1F2937",
+        dark: "#0D0D0D",
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
+      },
+      boxShadow: {
+        glow: "0 0 20px rgba(250, 204, 21, 0.7)",
       },
     },
   },

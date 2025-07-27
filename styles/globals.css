@@ -13,3 +13,8 @@ h1, h2, h3, h4 {
 button {
   @apply transition transform hover:scale-105;
 }
+
+/* אנימציות Glow */
+.glow-btn {
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);
+}

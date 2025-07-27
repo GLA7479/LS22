@@ -2,24 +2,18 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 flex justify-between items-center shadow-md">
-      <div className="flex items-center space-x-3">
-        <img
-          src="/images/logo.png"
-          alt="LIOSH Logo"
-          className="w-24 h-24 object-contain"
-        />
-        <h1 className="text-2xl font-extrabold">LIOSH Token</h1>
-      </div>
-
-      <nav className="space-x-6 text-lg font-semibold">
-        <Link href="/">Home</Link>
-        <Link href="/tokenomics">Tokenomics</Link>
-        <Link href="/presale">Presale</Link>
-        <Link href="/staking">Staking</Link>
-        <Link href="/gallery">Gallery</Link>
-        <Link href="/whitepaper">Whitepaper</Link>
+    <header className="fixed top-0 w-full flex justify-between items-center px-8 py-4 z-50 bg-black/40 backdrop-blur-lg">
+      <h1 className="text-2xl font-extrabold text-yellow-400">LIOSH</h1>
+      <nav className="space-x-6 hidden md:flex">
+        <Link href="#roadmap" className="hover:text-yellow-400">Roadmap</Link>
+        <Link href="#tokenomics" className="hover:text-yellow-400">Tokenomics</Link>
+        <Link href="#contact" className="hover:text-yellow-400">Contact</Link>
       </nav>
+      <Link href="/presale">
+        <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-bold hover:bg-yellow-500 transition glow-btn">
+          🚀 Presale
+        </button>
+      </Link>
     </header>
   );
 }

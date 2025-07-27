@@ -1,23 +1,11 @@
+import Header from "../components/Header";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="bg-black text-white min-h-screen overflow-hidden">
-      {/* 🔹 Header */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-8 py-4 z-50 bg-black/40 backdrop-blur-lg">
-        <h1 className="text-2xl font-extrabold text-yellow-400">LIOSH</h1>
-        <nav className="space-x-6 hidden md:flex">
-          <Link href="#roadmap" className="hover:text-yellow-400">Roadmap</Link>
-          <Link href="#tokenomics" className="hover:text-yellow-400">Tokenomics</Link>
-          <Link href="#contact" className="hover:text-yellow-400">Contact</Link>
-        </nav>
-        <Link href="/presale">
-          <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-bold hover:bg-yellow-500 transition">
-            🚀 Presale
-          </button>
-        </Link>
-      </header>
+      <Header />
 
       {/* 🔹 Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center">
@@ -45,7 +33,7 @@ export default function Home() {
           </p>
           <div className="space-x-4">
             <Link href="/presale">
-              <button className="bg-yellow-400 text-black px-10 py-4 rounded-xl font-bold text-xl shadow-xl hover:bg-yellow-500 hover:scale-105 transition transform">
+              <button className="bg-yellow-400 text-black px-10 py-4 rounded-xl font-bold text-xl shadow-xl hover:bg-yellow-500 hover:scale-105 transition transform glow-btn">
                 🚀 Join Presale
               </button>
             </Link>
@@ -58,7 +46,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 🔹 Roadmap Section */}
+      {/* 🔹 Roadmap */}
       <section id="roadmap" className="bg-black py-20 text-center">
         <h2 className="text-5xl font-bold text-yellow-400 mb-12">🚀 Roadmap</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
@@ -80,7 +68,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🔹 Tokenomics Section */}
+      {/* 🔹 Tokenomics */}
       <section id="tokenomics" className="bg-gray-900 py-20 text-center">
         <h2 className="text-5xl font-bold text-yellow-400 mb-12">📊 Tokenomics</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
@@ -100,17 +88,6 @@ export default function Home() {
               <p className="text-gray-300">{item.text}</p>
             </motion.div>
           ))}
-        </div>
-      </section>
-
-      {/* 🔹 Contact Section */}
-      <section id="contact" className="bg-gray-800 py-16 text-center">
-        <h2 className="text-3xl font-bold text-yellow-400 mb-6">📩 Get in Touch</h2>
-        <div className="flex justify-center space-x-6 text-lg">
-          <a href="mailto:contact@liosh.com" className="hover:text-yellow-400">📧 Email</a>
-          <a href="#" className="hover:text-yellow-400">🐦 Twitter</a>
-          <a href="#" className="hover:text-yellow-400">💬 Telegram</a>
-          <a href="#" className="hover:text-yellow-400">🌐 Discord</a>
         </div>
       </section>
     </div>

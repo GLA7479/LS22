@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 body {
   @apply bg-dark text-white font-sans;
   font-family: "Poppins", sans-serif;
@@ -15,6 +16,28 @@ h1,h2,h3,h4 {
   box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);
 }
 
+=======
+/* ✅ פונטים */
+body {
+  @apply bg-black text-white font-sans;
+  font-family: "Poppins", sans-serif;
+}
+
+h1, h2, h3, h4 {
+  @apply font-bold;
+}
+
+/* ✅ כפתור Glow */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.7);
+  transition: all 0.3s ease;
+}
+.shadow-glow:hover {
+  box-shadow: 0 0 30px rgba(250, 204, 21, 0.9);
+}
+
+/* ✅ אנימציות Scroll */
+>>>>>>> 658818ad1b33b58d02c9b1615f07818efe2709df
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -23,4 +46,8 @@ h1,h2,h3,h4 {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 658818ad1b33b58d02c9b1615f07818efe2709df

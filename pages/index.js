@@ -1,13 +1,27 @@
+"use client";
 import Header from "../components/Header";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  }, []);
+
   return (
-    <div className="bg-black text-white min-h-screen overflow-hidden">
+    <div className="bg-black text-white min-h-screen">
       <Header />
 
-      {/* 🔹 Hero Section */}
+      {/* 🔹 HERO */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center">
         <video
           autoPlay
@@ -19,13 +33,8 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
 
-        <motion.div
-          className="relative z-10 max-w-3xl px-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h1 className="text-6xl md:text-7xl font-extrabold text-yellow-400 mb-4 drop-shadow-lg">
+        <div className="relative z-10 max-w-3xl px-6">
+          <h1 className="text-6xl md:text-7xl font-extrabold text-yellow-400 drop-shadow-lg mb-4">
             LIOSH Token
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-6">
@@ -33,22 +42,22 @@ export default function Home() {
           </p>
           <div className="space-x-4">
             <Link href="/presale">
-              <button className="bg-yellow-400 text-black px-10 py-4 rounded-xl font-bold text-xl shadow-xl hover:bg-yellow-500 hover:scale-105 transition transform glow-btn">
+              <button className="bg-yellow-400 text-black px-10 py-4 rounded-xl font-bold text-xl shadow-glow hover:scale-105 transition">
                 🚀 Join Presale
               </button>
             </Link>
             <Link href="/staking">
-              <button className="border-2 border-yellow-400 text-yellow-400 px-10 py-4 rounded-xl font-bold text-xl hover:bg-yellow-400 hover:text-black shadow-xl hover:scale-105 transition transform">
+              <button className="border-2 border-yellow-400 text-yellow-400 px-10 py-4 rounded-xl font-bold text-xl hover:bg-yellow-400 hover:text-black shadow-glow hover:scale-105 transition">
                 💰 Stake Now
               </button>
             </Link>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* 🔹 Roadmap */}
+      {/* 🔹 ROADMAP */}
       <section id="roadmap" className="bg-black py-20 text-center">
-        <h2 className="text-5xl font-bold text-yellow-400 mb-12">🚀 Roadmap</h2>
+        <h2 className="text-5xl font-bold text-yellow-400 mb-12 fade-in">🚀 Roadmap</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
           {[
             { phase: "Phase 1", text: "Token Launch, Website, Community Building" },
@@ -56,21 +65,20 @@ export default function Home() {
             { phase: "Phase 3", text: "Exchange Listings, Staking Launch" },
             { phase: "Phase 4", text: "Major Partnerships & Metaverse Utility" },
           ].map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gray-900 p-6 rounded-xl shadow-xl hover:shadow-yellow-400/30 transition"
+              className="fade-in bg-gray-900 p-6 rounded-xl shadow-xl hover:shadow-yellow-400/30 transition"
             >
               <h3 className="text-2xl font-bold text-yellow-400 mb-2">{item.phase}</h3>
               <p className="text-gray-300">{item.text}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* 🔹 Tokenomics */}
+      {/* 🔹 TOKENOMICS */}
       <section id="tokenomics" className="bg-gray-900 py-20 text-center">
-        <h2 className="text-5xl font-bold text-yellow-400 mb-12">📊 Tokenomics</h2>
+        <h2 className="text-5xl font-bold text-yellow-400 mb-12 fade-in">📊 Tokenomics</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
           {[
             { title: "Total Supply", text: "1,000,000,000,000 LIOSH" },
@@ -79,14 +87,13 @@ export default function Home() {
             { title: "Staking Rewards", text: "20% – Incentives" },
             { title: "Team & Advisors", text: "10% – Locked" },
           ].map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-yellow-400/30 transition"
+              className="fade-in bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-yellow-400/30 transition"
             >
               <h3 className="text-2xl font-bold text-yellow-400 mb-2">{item.title}</h3>
               <p className="text-gray-300">{item.text}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>

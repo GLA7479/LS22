@@ -1,12 +1,10 @@
-import Link from "next/link";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      <Header />
+    <Layout>
       <motion.main
         className="relative min-h-screen text-white flex flex-col items-center justify-center overflow-hidden"
         initial={{ opacity: 0 }}
@@ -112,8 +110,6 @@ export default function Home() {
           <a href="#" className="hover:text-yellow-400">🌐 Discord</a>
         </div>
       </section>
-
-      <Footer />
-    </>
+    </Layout>
   );
 }

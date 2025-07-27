@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-dark text-white font-sans;
+  font-family: "Poppins", sans-serif;
+}
+
+h1,h2,h3,h4 {
+  @apply font-bold;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,13 +1,26 @@
-import Layout from "../components/Layout.js";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaRocket, FaCoins, FaUsers, FaChartPie, FaHandHoldingUsd } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <Layout>
-      {/* 🔹 Hero Section עם וידאו */}
-      <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <div className="bg-black text-white min-h-screen overflow-hidden">
+      {/* 🔹 Header */}
+      <header className="fixed top-0 w-full flex justify-between items-center px-8 py-4 z-50 bg-black/40 backdrop-blur-lg">
+        <h1 className="text-2xl font-extrabold text-yellow-400">LIOSH</h1>
+        <nav className="space-x-6 hidden md:flex">
+          <Link href="#roadmap" className="hover:text-yellow-400">Roadmap</Link>
+          <Link href="#tokenomics" className="hover:text-yellow-400">Tokenomics</Link>
+          <Link href="#contact" className="hover:text-yellow-400">Contact</Link>
+        </nav>
+        <Link href="/presale">
+          <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-bold hover:bg-yellow-500 transition">
+            🚀 Presale
+          </button>
+        </Link>
+      </header>
+
+      {/* 🔹 Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center">
         <video
           autoPlay
           muted
@@ -16,28 +29,28 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
           src="/videos/home-bg.mp4"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
 
         <motion.div
           className="relative z-10 max-w-3xl px-6"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="text-6xl md:text-7xl font-extrabold text-yellow-400 drop-shadow-lg mb-4">
+          <h1 className="text-6xl md:text-7xl font-extrabold text-yellow-400 mb-4 drop-shadow-lg">
             LIOSH Token
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8">
-            The ultimate meme coin inspired by Shiba Inu! Be part of the next crypto revolution.
+          <p className="text-xl md:text-2xl text-gray-200 mb-6">
+            The next generation meme coin. Join our revolution!
           </p>
           <div className="space-x-4">
             <Link href="/presale">
-              <button className="bg-yellow-400 text-black px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-yellow-500 hover:scale-105 transition transform">
+              <button className="bg-yellow-400 text-black px-10 py-4 rounded-xl font-bold text-xl shadow-xl hover:bg-yellow-500 hover:scale-105 transition transform">
                 🚀 Join Presale
               </button>
             </Link>
             <Link href="/staking">
-              <button className="bg-transparent border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 hover:text-black shadow-lg hover:scale-105 transition transform">
+              <button className="border-2 border-yellow-400 text-yellow-400 px-10 py-4 rounded-xl font-bold text-xl hover:bg-yellow-400 hover:text-black shadow-xl hover:scale-105 transition transform">
                 💰 Stake Now
               </button>
             </Link>
@@ -46,8 +59,8 @@ export default function Home() {
       </section>
 
       {/* 🔹 Roadmap Section */}
-      <section className="bg-black text-white py-20">
-        <h2 className="text-5xl font-bold text-yellow-400 text-center mb-12">🚀 Roadmap</h2>
+      <section id="roadmap" className="bg-black py-20 text-center">
+        <h2 className="text-5xl font-bold text-yellow-400 mb-12">🚀 Roadmap</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
           {[
             { phase: "Phase 1", text: "Token Launch, Website, Community Building" },
@@ -58,7 +71,7 @@ export default function Home() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-900 p-6 rounded-xl shadow-xl text-center"
+              className="bg-gray-900 p-6 rounded-xl shadow-xl hover:shadow-yellow-400/30 transition"
             >
               <h3 className="text-2xl font-bold text-yellow-400 mb-2">{item.phase}</h3>
               <p className="text-gray-300">{item.text}</p>
@@ -68,36 +81,38 @@ export default function Home() {
       </section>
 
       {/* 🔹 Tokenomics Section */}
-      <section className="bg-gray-900 text-white py-20">
-        <h2 className="text-5xl font-bold text-yellow-400 text-center mb-12">📊 Tokenomics</h2>
+      <section id="tokenomics" className="bg-gray-900 py-20 text-center">
+        <h2 className="text-5xl font-bold text-yellow-400 mb-12">📊 Tokenomics</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
           {[
-            { title: "Total Supply", text: "1,000,000,000,000 LIOSH", icon: <FaCoins size={30} /> },
-            { title: "Presale Allocation", text: "40% – Available for early investors", icon: <FaRocket size={30} /> },
-            { title: "Liquidity & Marketing", text: "30% – Locked for liquidity & promotions", icon: <FaUsers size={30} /> },
-            { title: "Staking Rewards", text: "20% – For staking pools and incentives", icon: <FaHandHoldingUsd size={30} /> },
-            { title: "Team & Advisors", text: "10% – Team allocation (locked)", icon: <FaChartPie size={30} /> },
+            { title: "Total Supply", text: "1,000,000,000,000 LIOSH" },
+            { title: "Presale Allocation", text: "40% – Early Investors" },
+            { title: "Liquidity & Marketing", text: "30% – Locked" },
+            { title: "Staking Rewards", text: "20% – Incentives" },
+            { title: "Team & Advisors", text: "10% – Locked" },
           ].map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-800 p-6 rounded-xl shadow-xl flex flex-col items-center text-center"
+              className="bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-yellow-400/30 transition"
             >
-              <div className="text-yellow-400 mb-3">{item.icon}</div>
-              <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
+              <h3 className="text-2xl font-bold text-yellow-400 mb-2">{item.title}</h3>
               <p className="text-gray-300">{item.text}</p>
             </motion.div>
           ))}
         </div>
+      </section>
 
-        <div className="text-center mt-12">
-          <Link href="/tokenomics">
-            <button className="bg-yellow-400 text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-500 hover:scale-105 transition transform">
-              📊 Learn More
-            </button>
-          </Link>
+      {/* 🔹 Contact Section */}
+      <section id="contact" className="bg-gray-800 py-16 text-center">
+        <h2 className="text-3xl font-bold text-yellow-400 mb-6">📩 Get in Touch</h2>
+        <div className="flex justify-center space-x-6 text-lg">
+          <a href="mailto:contact@liosh.com" className="hover:text-yellow-400">📧 Email</a>
+          <a href="#" className="hover:text-yellow-400">🐦 Twitter</a>
+          <a href="#" className="hover:text-yellow-400">💬 Telegram</a>
+          <a href="#" className="hover:text-yellow-400">🌐 Discord</a>
         </div>
       </section>
-    </Layout>
+    </div>
   );
 }
